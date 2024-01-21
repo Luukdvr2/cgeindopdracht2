@@ -34,7 +34,7 @@ const objLoader = new OBJLoader();
 // Load the OBJ file
 objLoader.load('\planeettwee.obj', (object) => {
   // Set the position, scale, or any other properties of the loaded object if needed
-  object.position.set(0, 0, 0);
+  object.position.set(50, 50, 50);
   object.scale.set(1, 1, 1);
 
   // Add the loaded object to the scene
