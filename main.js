@@ -1,7 +1,13 @@
 import './style.css'
+import { setupCounter } from './counter.js'
+
 import * as THREE from 'three';
 
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+
+
 
 const scene = new THREE.Scene();
 
@@ -22,6 +28,18 @@ const material = new THREE.MeshStandardMaterial( { color: 0xFF6347});
 const torus = new THREE.Mesh( geometry, material);
 
 scene.add(torus)
+
+const objLoader = new OBJLoader();
+
+// Load the OBJ file
+objLoader.load('\planeettwee.obj', (object) => {
+  // Set the position, scale, or any other properties of the loaded object if needed
+  object.position.set(0, 0, 0);
+  object.scale.set(1, 1, 1);
+
+  // Add the loaded object to the scene
+  scene.add(object);
+});
 
 const pointLight =new THREE.PointLight(0xffffff, 3000)
 pointLight.position.set(20, 20, 20)
